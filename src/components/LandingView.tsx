@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from './UiKit';
 import { motion } from 'framer-motion';
 import { 
-  Code2, Smartphone, Cpu, LineChart, Share2, Globe, Terminal, Database
+  Code2, Smartphone, Cpu, Share2, Globe, Terminal, Database
 } from 'lucide-react';
 import { ClientView } from './ClientView';
 import { FeedbackView } from './FeedbackView';
@@ -22,7 +22,6 @@ export const LandingView: React.FC = () => {
     { title: 'Web Platforms', desc: 'Sleek, lightning-fast modern web applications and portals crafted for rapid digital scaling.', icon: Code2, tag: 'Next.js Architecture', dark: false },
     { title: 'Mobile Applications', desc: 'Stunning Android, iOS, and cross-platform native applications equipped with fluid motion interfaces.', icon: Smartphone, tag: 'Mobile Core', dark: true },
     { title: 'Billing & Business Tools', desc: 'Custom enterprise software, CRM platforms, and integrated payment orchestration systems.', icon: Database, tag: 'Enterprise Systems', dark: false },
-    { title: 'SEO & Growth Systems', desc: 'Engineered search visibility optimization campaigns and analytics dashboards that maximize organic traction.', icon: LineChart, tag: 'Organic Growth', dark: true },
     { title: 'Portfolio Platforms', desc: 'Ultra-sleek personal and startup showcase sites loaded with immersive page transitions and high-end aesthetics.', icon: Globe, tag: 'Digital Identity', dark: false },
     { title: 'Social Media Management', desc: 'Accelerate brand reach, design stunning content pipelines, and drive automated community engagement.', icon: Share2, tag: 'Brand Engine', dark: true },
     { title: 'Custom Software Architecture', desc: 'Bespoke backend systems, secure API gateways, and scalable cloud infrastructure for modern startups.', icon: Terminal, tag: 'Backend Cloud', dark: false }
