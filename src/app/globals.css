@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cosmic-black: #050505;
+  --color-dark-navy: #0F172A;
+  --color-electric-blue: #2563EB;
+  --color-cyan-glow: #38BDF8;
+  --color-neon-purple: #7C3AED;
+  --color-glow-cyan: #00E5FF;
+  --color-silver-white: #64748B;
+  --color-slate-border: rgba(15, 23, 42, 0.06);
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  
+  --font-sora: var(--font-sora);
+  --font-inter: var(--font-inter);
+  
+  --animate-aurora: aurora 25s ease infinite;
+  --animate-text-shine: text-shine 6s linear infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shine-pulse: shine-pulse var(--shine-pulse-duration, 14s) infinite linear;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes text-shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes shine-pulse {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+:root {
+  --font-sora: 'Sora', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --blue-500: #3b82f6;
+  --indigo-300: #a5b4fc;
+  --blue-300: #93c5fd;
+  --violet-200: #ddd6fe;
+  --blue-400: #60a5fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section, div[id] {
+  scroll-margin-top: 100px;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  letter-spacing: -0.015em;
+  min-height: 100vh;
+}
+
+/* 
+================================================================================
+Apple + Stripe + Framer Premium Hybrid Layout System
+================================================================================
+*/
+
+/* Light elegant card that elevates on hover with high blur shadows */
+.premium-card-light {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02), 
+    0 10px 15px -3px rgba(0, 0, 0, 0.03), 
+    0 20px 25px -5px rgba(0, 0, 0, 0.01),
+    0 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card-light:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 20px -10px rgba(37, 99, 235, 0.08), 
+    0 20px 40px -15px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+/* Dark Premium Card for mixed components and dashboard elements */
+.premium-card-dark {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card-dark:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    0 0 20px -5px rgba(56, 189, 248, 0.15);
+}
+
+/* Glassmorphism panel with light blur */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.01),
+    0 10px 30px -5px rgba(0, 0, 0, 0.03);
+}
+
+/* Subtly animated light-ambient grid */
+.fine-grid-texture-light {
+  position: absolute;
+  inset: 0;
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ambient glow colors adapted for soft backlighting */
+.ambient-glow-blue {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-glow-cyan {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Text linear shimmer */
+.text-shine-gradient-light {
+  background: linear-gradient(135deg, #0F172A 30%, #2563EB 60%, #0F172A 100%);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-shine 5s linear infinite;
+}
+
+/* Custom micro scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+/* Input dynamic luxury focus */
+.input-luxury-focus:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 20px -5px rgba(37, 99, 235, 0.15);
+}
+
+/* Printable layout styles */
+@media print {
+  body.thermal-print-active {
+    background: white !important;
+    color: black !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    width: 80mm !important;
+    padding: 2mm !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
