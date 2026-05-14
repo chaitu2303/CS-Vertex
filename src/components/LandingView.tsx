@@ -13,7 +13,6 @@ import { QuoteView } from './QuoteView';
 import { InternshipView } from './InternshipView';
 import { FoundersSection } from './FoundersSection';
 import { GlowCard } from '@/components/ui/spotlight-card';
-import ShaderShowcase from '@/components/ui/hero';
 
 
 export const LandingView: React.FC = () => {
@@ -62,8 +61,61 @@ export const LandingView: React.FC = () => {
       />
 
       {/* --- HERO SECTION (CENTERED MINIMALIST MODERN) --- */}
-      {/* --- HERO SECTION (NEW SHADER SHOWCASE) --- */}
-      <ShaderShowcase />
+      <section id="home" className="relative z-10 pt-20 pb-28 md:pt-32 md:pb-36 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto flex items-center justify-center min-h-[75vh]">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto space-y-6">
+          
+          {/* Clean Editorial Sora Header Title */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-sora tracking-tight leading-[1.05] text-[#0F172A]"
+          >
+            Engineering Intelligent <span className="text-shine-gradient-light font-black">Digital Systems</span>
+          </motion.h1>
+
+          {/* Subtitle description with balanced max-width */}
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-sm sm:text-base md:text-lg text-[#64748B] font-medium max-w-2xl leading-relaxed font-inter"
+          >
+            We build scalable AI platforms, automation workflows, business software, and modern digital infrastructure for startups and enterprises.
+          </motion.p>
+
+          {/* Interactive Custom Button Grid */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap gap-4 items-center justify-center pt-4"
+          >
+            <Button 
+              variant="solid" 
+              size="sm" 
+              onClick={() => {
+                const el = document.getElementById('contact');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="font-bold font-sora text-xs px-6 py-3.5 bg-[#2563EB] text-white hover:bg-blue-700 shadow-md shadow-blue-500/10 cursor-pointer"
+            >
+              Start Your Project
+            </Button>
+            <Button 
+              variant="solid" 
+              size="sm" 
+              onClick={() => {
+                const el = document.getElementById('services');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="font-bold font-sora text-xs px-6 py-3.5 border border-slate-200 text-slate-800 bg-white hover:bg-slate-50 shadow-sm cursor-pointer"
+            >
+              Explore Solutions
+            </Button>
+          </motion.div>
+        </div>
+      </section>
 
 
       {/* --- SERVICES SECTION (BENTO GRID WITH MIXED CARDS) --- */}
