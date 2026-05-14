@@ -50,7 +50,7 @@ export const FeedbackView: React.FC = () => {
           What Clients Say About Working With Us
         </h1>
         <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-2xl mx-auto font-medium leading-relaxed font-inter">
-          Trusted by startups, businesses, and emerging founders building modern digital operations.
+          Businesses trust CS Vertex for modern design, reliable systems, and scalable digital solutions.
         </p>
       </div>
 
@@ -183,7 +183,7 @@ export const FeedbackView: React.FC = () => {
                   fullWidth 
                   className="font-sora text-xs py-3.5 mt-2 bg-gradient-to-r from-[#2563EB] to-[#2563EB] hover:brightness-105 border-transparent text-white"
                 >
-                  Transmit Feedback Review
+                  Connect With Us
                 </Button>
               </form>
             )}

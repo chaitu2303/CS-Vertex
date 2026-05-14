@@ -19,7 +19,7 @@ export const AdminView: React.FC = () => {
     feedbacks, setRole
   } = useGlobalStore();
 
-  const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'billing' | 'interns' | 'feedbacks' | 'settings'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'clients' | 'billing' | 'interns' | 'feedbacks' | 'settings'>('overview');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [accessKey, setAccessKey] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -192,22 +192,30 @@ export const AdminView: React.FC = () => {
             onClick={() => setActiveTab('overview')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'overview' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <LayoutDashboard className="w-4 h-4" /> Dashboard Overview
+            <LayoutDashboard className="w-4 h-4" /> Leads
           </button>
 
           <button 
             onClick={() => setActiveTab('projects')}
             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'projects' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <div className="flex items-center gap-3"><FolderKanban className="w-4 h-4" /> Client Projects</div>
+            <div className="flex items-center gap-3"><FolderKanban className="w-4 h-4" /> Projects</div>
             <span className={`text-[10px] px-2 py-0.5 rounded-md font-mono ${activeTab === 'projects' ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-300'}`}>{activeProjectsCount}</span>
+          </button>
+
+          <button 
+            onClick={() => setActiveTab('clients')}
+            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'clients' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
+          >
+            <div className="flex items-center gap-3"><Users className="w-4 h-4" /> Clients</div>
+            <span className={`text-[10px] px-2 py-0.5 rounded-md font-mono ${activeTab === 'clients' ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-300'}`}>{projects.length}</span>
           </button>
 
           <button 
             onClick={() => setActiveTab('billing')}
             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'billing' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <div className="flex items-center gap-3"><Landmark className="w-4 h-4" /> Billing & Invoices</div>
+            <div className="flex items-center gap-3"><Landmark className="w-4 h-4" /> Billing</div>
             {invoices.filter(i => i.status === 'Pending').length > 0 && <span className="text-[10px] bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded-md font-mono">{invoices.filter(i => i.status === 'Pending').length}</span>}
           </button>
 
@@ -215,7 +223,7 @@ export const AdminView: React.FC = () => {
             onClick={() => setActiveTab('interns')}
             className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'interns' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <div className="flex items-center gap-3"><Users className="w-4 h-4" /> Internship Desk</div>
+            <div className="flex items-center gap-3"><FileText className="w-4 h-4" /> Applications</div>
             {internApplicants.length > 0 && <span className="text-[10px] bg-red-500 text-white shadow-sm px-2 py-0.5 rounded-md font-mono">{internApplicants.length}</span>}
           </button>
 
@@ -223,16 +231,16 @@ export const AdminView: React.FC = () => {
             onClick={() => setActiveTab('feedbacks')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'feedbacks' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <MessageSquare className="w-4 h-4" /> Testimonials Audit
+            <MessageSquare className="w-4 h-4" /> Feedback
           </button>
 
-          <div className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest px-3 mb-3 mt-8">System Hardware</div>
+          <div className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest px-3 mb-3 mt-8">System Telemetry</div>
           
           <button 
             onClick={() => setActiveTab('settings')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${activeTab === 'settings' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25' : 'text-slate-400 hover:bg-slate-800/70 hover:text-white'}`}
           >
-            <Settings className="w-4 h-4" /> Platform Telemetry
+            <Settings className="w-4 h-4" /> Settings
           </button>
 
           <div className="pt-12 px-2">
@@ -417,8 +425,8 @@ export const AdminView: React.FC = () => {
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Client Projects Ecosystem</h1>
-                    <p className="text-sm text-slate-400 mt-1">Manage project milestone progression, client delivery expectations, and requirement nodes.</p>
+                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Client Projects</h1>
+                    <p className="text-sm text-slate-400 mt-1">Manage project milestones, client delivery expectations, and requirement notes.</p>
                   </div>
                   <Button onClick={() => setShowAddProject(true)} variant="solid" size="sm" className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-3 px-5 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-500/20">
                     <Plus className="w-4 h-4" /> Provision New Project
@@ -529,13 +537,55 @@ export const AdminView: React.FC = () => {
               </div>
             )}
 
+            {/* 2.5 CLIENTS DIRECTORY */}
+            {activeTab === 'clients' && (
+              <div className="space-y-8">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Client Directory</h1>
+                    <p className="text-sm text-slate-400 mt-1">Verified enterprise partners, contact channels, and engagement history.</p>
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                  <div className="px-6 py-5 border-b border-slate-800 flex justify-between items-center bg-slate-950/40">
+                    <h3 className="font-bold text-white font-sora">Enterprise Clients</h3>
+                    <span className="text-xs font-mono text-slate-400">TOTAL CLIENTS: {projects.length}</span>
+                  </div>
+
+                  <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {projects.map((proj) => (
+                      <div key={proj.id} className="p-6 rounded-2xl bg-slate-800/30 border border-slate-800 space-y-4 hover:border-slate-700 transition-all">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center font-bold text-base shrink-0 font-sora">
+                              {proj.clientName.charAt(0)}
+                            </div>
+                            <div>
+                              <h4 className="font-sora font-bold text-base text-white">{proj.clientName}</h4>
+                              <p className="text-xs text-slate-400">{proj.clientEmail}</p>
+                            </div>
+                          </div>
+                          <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-blue-600/20 text-blue-400 border border-blue-500/30">{proj.serviceType}</span>
+                        </div>
+                        <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                          <span>Active Project: <strong className="text-white font-semibold">{proj.title}</strong></span>
+                          <span className="font-mono text-emerald-400 font-bold">₹{proj.price.toLocaleString('en-IN')}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* 3. BILLING & INVOICING */}
             {activeTab === 'billing' && (
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Billing & Invoicing Ecosystem</h1>
-                    <p className="text-sm text-slate-400 mt-1">Orchestrate enterprise client invoicing, settled volumes, and server infrastructure inventory.</p>
+                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Billing & Invoicing</h1>
+                    <p className="text-sm text-slate-400 mt-1">Manage client invoicing, settled payments, and infrastructure inventory.</p>
                   </div>
                   <Button onClick={() => setShowAddInvoice(true)} variant="solid" size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-5 rounded-xl flex items-center gap-2 cursor-pointer shadow-lg shadow-emerald-500/20">
                     <DollarSign className="w-4 h-4" /> Generate New Invoice
@@ -546,7 +596,7 @@ export const AdminView: React.FC = () => {
                 <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                     <h3 className="font-bold text-white font-sora flex items-center gap-2">
-                      <Box className="w-4 h-4 text-blue-500" /> Infrastructure & Server Nodes Inventory
+                      <Box className="w-4 h-4 text-blue-500" /> Infrastructure Inventory
                     </h3>
                     <span className="text-xs font-mono text-slate-400">ACTIVE NODES: {inventory.length}</span>
                   </div>
@@ -651,7 +701,7 @@ export const AdminView: React.FC = () => {
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Internship Platform Engine</h1>
+                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Internship Applications</h1>
                     <p className="text-sm text-slate-400 mt-1">Review incoming engineering talent, evaluate submitted task deliverables, and dispatch verified completion certificates.</p>
                   </div>
                 </div>
@@ -825,7 +875,7 @@ export const AdminView: React.FC = () => {
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Client Testimonials Audit</h1>
+                    <h1 className="text-3xl font-black font-sora tracking-tight text-white">Client Feedback</h1>
                     <p className="text-sm text-slate-400 mt-1">Audit submitted feedback, customer reviews, and public web ratings.</p>
                   </div>
                 </div>
@@ -861,7 +911,7 @@ export const AdminView: React.FC = () => {
             {activeTab === 'settings' && (
               <div className="space-y-8">
                 <div>
-                  <h1 className="text-3xl font-black font-sora tracking-tight text-white">Platform Hardware Telemetry</h1>
+                  <h1 className="text-3xl font-black font-sora tracking-tight text-white">System Telemetry</h1>
                   <p className="text-sm text-slate-400 mt-1">Live health simulation, API response clusters, and memory caching metrics.</p>
                 </div>
 

@@ -111,7 +111,22 @@ interface GlobalState {
 export const useGlobalStore = create<GlobalState>((set, get) => ({
   role: 'guest',
   contactTab: 'consult',
-  feedbacks: [],
+  feedbacks: [
+    {
+      id: 'FB-101',
+      customerName: 'Peela Arjuna Rao (DeshProperty)',
+      rating: 5,
+      feedbackText: 'CS Vertex built our property platform with incredible speed and flawless WhatsApp integration. Their automation systems have saved us countless operational hours. Highly recommended for growing businesses!',
+      date: '2026-05-10'
+    },
+    {
+      id: 'FB-102',
+      customerName: 'Rajesh Thallapudi (FoodChain)',
+      rating: 5,
+      feedbackText: 'Working with CS Vertex was a game-changer for our logistics redistribution network. Their real-time mapping algorithms and robust backend architectures operate seamlessly at scale.',
+      date: '2026-05-12'
+    }
+  ],
   
   // Empty seed data for projects
   projects: [],

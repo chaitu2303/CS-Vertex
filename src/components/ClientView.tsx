@@ -104,10 +104,10 @@ export const ClientView: React.FC = () => {
             PORTFOLIO DIRECTORY
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-sora mt-1 tracking-tight text-[#0F172A]">
-            Selected Digital Systems & Client Platforms
+            Selected Projects & Digital Platforms
           </h1>
           <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-2xl font-medium leading-relaxed font-inter">
-            Explore production-ready software systems, automation engines, and scalable digital solutions delivered by CS Vertex.
+            Explore some of the modern platforms, automation systems, and business solutions developed by CS Vertex.
           </p>
         </div>
       </div>

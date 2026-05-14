@@ -32,14 +32,20 @@ export const Navigation: React.FC = () => {
     }
 
     if (elementId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const homeEl = document.getElementById('home');
+        homeEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
     } else if (elementId) {
       setTimeout(() => {
         const el = document.getElementById(elementId);
         el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 50);
     }
   };
 
@@ -91,15 +97,15 @@ export const Navigation: React.FC = () => {
         
         {/* Brand Identity / Home Anchor */}
         <motion.div 
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-3 cursor-pointer select-none group py-1 shrink-0"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center gap-3.5 cursor-pointer select-none group py-1 shrink-0"
           onClick={() => handleNavClick('guest', 'home', 'home')}
         >
-          <div className="p-2 rounded-xl bg-[#050505] border border-slate-200/40 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm flex items-center justify-center">
-            <span className="font-black text-white px-1 font-sora text-sm group-hover:text-blue-400 transition-colors leading-none">V</span>
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden flex items-center justify-center bg-[#0A0F1D] p-0.5 border border-slate-700/80 shadow-lg shadow-blue-500/15">
+            <img src="/logo.png" alt="CS Vertex Logo" className="w-full h-full object-contain scale-105" />
           </div>
-          <span className="font-sora font-black tracking-tight text-base hidden lg:inline-block text-[#0F172A] group-hover:text-[#2563EB] transition-colors duration-300">
+          <span className="font-sora font-black tracking-tight text-xl sm:text-2xl text-[#0F172A] group-hover:text-[#2563EB] transition-colors duration-300">
             CS Vertex
           </span>
         </motion.div>

@@ -18,12 +18,12 @@ import { GlowCard } from '@/components/ui/spotlight-card';
 export const LandingView: React.FC = () => {
 
   const services = [
-    { title: 'AI Automation Systems', desc: 'Intelligent multi-agent context handlers and autonomous workflows designed to optimize critical business operations.', icon: Cpu, tag: 'Machine Intelligence', dark: true },
-    { title: 'Web Platforms', desc: 'Sleek, lightning-fast modern web applications and portals crafted for rapid digital scaling.', icon: Code2, tag: 'Next.js Architecture', dark: false },
-    { title: 'Mobile Applications', desc: 'Stunning Android, iOS, and cross-platform native applications equipped with fluid motion interfaces.', icon: Smartphone, tag: 'Mobile Core', dark: true },
-    { title: 'Billing & Business Tools', desc: 'Custom enterprise software, CRM platforms, and integrated payment orchestration systems.', icon: Database, tag: 'Enterprise Systems', dark: false },
-    { title: 'Portfolio Platforms', desc: 'Ultra-sleek personal and startup showcase sites loaded with immersive page transitions and high-end aesthetics.', icon: Globe, tag: 'Digital Identity', dark: false },
-    { title: 'Social Media Management', desc: 'Accelerate brand reach, design stunning content pipelines, and drive automated community engagement.', icon: Share2, tag: 'Brand Engine', dark: true }
+    { title: 'AI Automation Systems', desc: 'Smart automation tools designed to simplify workflows and improve business efficiency.', icon: Cpu, tag: 'AI & Automation', bgStyle: 'bg-gradient-to-br from-blue-50/95 via-white to-indigo-50/90 border-blue-200/80 text-blue-950', iconBg: 'bg-blue-600 text-white shadow-md shadow-blue-500/25 border-transparent', tagBg: 'bg-blue-100 text-blue-700 border-blue-200' },
+    { title: 'Web Development', desc: 'Modern responsive websites built for performance, scalability, and professional branding.', icon: Code2, tag: 'Web Development', bgStyle: 'bg-gradient-to-br from-cyan-50/95 via-white to-blue-50/90 border-cyan-200/80 text-cyan-950', iconBg: 'bg-cyan-600 text-white shadow-md shadow-cyan-500/25 border-transparent', tagBg: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
+    { title: 'App Development', desc: 'Custom mobile and web applications tailored to business needs and user experience.', icon: Smartphone, tag: 'Mobile Apps', bgStyle: 'bg-gradient-to-br from-purple-50/95 via-white to-pink-50/90 border-purple-200/80 text-purple-950', iconBg: 'bg-purple-600 text-white shadow-md shadow-purple-500/25 border-transparent', tagBg: 'bg-purple-100 text-purple-700 border-purple-200' },
+    { title: 'Billing Software', desc: 'Digital invoicing and smart billing systems designed for modern business operations.', icon: Database, tag: 'Business Software', bgStyle: 'bg-gradient-to-br from-emerald-50/95 via-white to-teal-50/90 border-emerald-200/80 text-emerald-950', iconBg: 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 border-transparent', tagBg: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+    { title: 'SEO Optimization', desc: 'Search optimization strategies that improve online visibility and business growth.', icon: Globe, tag: 'Search Optimization', bgStyle: 'bg-gradient-to-br from-amber-50/95 via-white to-orange-50/90 border-amber-200/80 text-amber-950', iconBg: 'bg-amber-600 text-white shadow-md shadow-amber-500/25 border-transparent', tagBg: 'bg-amber-100 text-amber-700 border-amber-200' },
+    { title: 'Social Media Management', desc: 'Professional social media handling focused on brand consistency and audience engagement.', icon: Share2, tag: 'Brand Management', bgStyle: 'bg-gradient-to-br from-rose-50/95 via-white to-pink-50/90 border-rose-200/80 text-rose-950', iconBg: 'bg-rose-600 text-white shadow-md shadow-rose-500/25 border-transparent', tagBg: 'bg-rose-100 text-rose-700 border-rose-200' }
   ];
 
   return (
@@ -71,7 +71,7 @@ export const LandingView: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-sora tracking-tight leading-[1.05] text-[#0F172A]"
           >
-            Engineering Intelligent <span className="text-shine-gradient-light font-black">Digital Systems</span>
+            Building Modern Digital Systems for <span className="text-shine-gradient-light font-black">Growing Businesses</span>
           </motion.h1>
 
           {/* Subtitle description with balanced max-width */}
@@ -81,7 +81,7 @@ export const LandingView: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg text-[#64748B] font-medium max-w-2xl leading-relaxed font-inter"
           >
-            We build scalable AI platforms, automation workflows, business software, and modern digital infrastructure for startups and enterprises.
+            CS Vertex helps startups, businesses, and organizations build scalable websites, automation systems, AI-powered tools, and modern business platforms.
           </motion.p>
 
           {/* Interactive Custom Button Grid */}
@@ -111,7 +111,7 @@ export const LandingView: React.FC = () => {
               }}
               className="font-bold font-sora text-xs px-6 py-3.5 border border-slate-200 text-slate-800 bg-white hover:bg-slate-50 shadow-sm cursor-pointer"
             >
-              Explore Solutions
+              Explore Services
             </Button>
           </motion.div>
         </div>
@@ -124,15 +124,14 @@ export const LandingView: React.FC = () => {
           <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold">INTEGRATED SOLUTION CORE</span>
           <h2 className="text-3xl sm:text-4xl font-black font-sora text-[#0F172A]">Solutions Designed for Modern Businesses</h2>
           <p className="text-[#64748B] text-xs sm:text-sm max-w-xl mx-auto font-medium">
-            Scalable software systems engineered for automation, growth, and operational efficiency.
+            We create scalable digital systems that help businesses improve operations, online presence, and customer experience.
           </p>
         </div>
 
-        {/* Alternating mixed layouts: light luxury cards and dark premium cards */}
+        {/* Uniform premium colored glassmorphism cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((svc, idx) => {
             const IconComponent = svc.icon;
-            const isDark = svc.dark;
             return (
               <motion.div
                 key={idx}
@@ -142,24 +141,20 @@ export const LandingView: React.FC = () => {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="h-full"
               >
-                <GlowCard customSize glowColor={isDark ? 'blue' : 'purple'} className="w-full h-full p-[2px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]">
-                  <div className={`p-7 md:p-8 rounded-[14px] h-full flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 group ${
-                    isDark 
-                      ? 'bg-gradient-to-br from-slate-950 to-[#0F172A] text-white shadow-2xl shadow-blue-900/20' 
-                      : 'bg-white/95 text-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)]'
-                  }`}>
+                <GlowCard customSize glowColor="blue" className="w-full h-full p-[2px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]">
+                  <div className={`p-7 md:p-8 rounded-[14px] h-full flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 border ${svc.bgStyle} shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.15)] group`}>
                     <div>
                       <div className="flex items-center justify-between mb-5">
-                        <div className={`p-3 rounded-xl border transition-colors duration-300 ${isDark ? 'bg-slate-800/50 border-slate-600 text-blue-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 group-hover:border-blue-500/40' : 'bg-white border-slate-200 text-[#2563EB] group-hover:bg-blue-50 group-hover:border-blue-200'}`}>
+                        <div className={`p-3 rounded-xl border transition-colors duration-300 ${svc.iconBg}`}>
                           <IconComponent className="w-5 h-5" />
                         </div>
-                        <span className={`text-[9px] font-mono font-bold tracking-wider uppercase border px-2.5 py-1 rounded-full ${isDark ? 'text-slate-300 border-slate-600 bg-slate-800/50' : 'text-[#64748B] border-slate-200 bg-white/50'}`}>
+                        <span className={`text-[9px] font-mono font-bold tracking-wider uppercase border px-2.5 py-1 rounded-full ${svc.tagBg}`}>
                           {svc.tag}
                         </span>
                       </div>
 
-                      <h3 className={`font-sora font-extrabold text-lg mb-2 leading-tight ${isDark ? 'text-white' : 'text-[#0F172A]'}`}>{svc.title}</h3>
-                      <p className={`text-xs leading-relaxed mb-6 font-sans font-medium ${isDark ? 'text-slate-400' : 'text-[#64748B]'}`}>{svc.desc}</p>
+                      <h3 className="font-sora font-extrabold text-lg mb-2 leading-tight">{svc.title}</h3>
+                      <p className="text-xs leading-relaxed mb-6 font-sans font-medium opacity-80">{svc.desc}</p>
                     </div>
 
                     <div>
@@ -171,7 +166,7 @@ export const LandingView: React.FC = () => {
                           const el = document.getElementById('contact');
                           el?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="text-[10px] font-semibold tracking-wider uppercase font-sora py-3 rounded-xl mt-4 cursor-pointer"
+                        className="text-[10px] font-bold tracking-wider uppercase font-sora py-3 rounded-xl mt-4 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white shadow-md shadow-slate-900/10 transition-all duration-300"
                       >
                         Request Consultation 
                       </Button>

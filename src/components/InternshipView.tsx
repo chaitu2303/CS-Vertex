@@ -55,7 +55,7 @@ export const InternshipView: React.FC = () => {
           Future Internship Opportunities
         </h1>
         <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-xl mx-auto font-medium leading-relaxed font-inter">
-          We occasionally onboard passionate student developers, designers, and AI enthusiasts to collaborate on real-world systems.
+          We occasionally collaborate with passionate students and aspiring developers on real-world digital projects.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export const InternshipView: React.FC = () => {
                     <div className="p-2.5 bg-blue-50 border border-blue-100 text-[#2563EB] rounded-xl">
                       <GraduationCap className="w-5 h-5 text-[#2563EB]" />
                     </div>
-                    <h3 className="font-sora font-extrabold text-base text-[#0F172A]">Submit to Candidate Talent Pool</h3>
+                    <h3 className="font-sora font-extrabold text-base text-[#0F172A]">Candidate Talent Pool</h3>
                   </div>
                   <span className="text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-amber-50 text-amber-600 border border-amber-200">
                     Currently No Active Openings
@@ -87,8 +87,8 @@ export const InternshipView: React.FC = () => {
               {internSuccess ? (
                 <div className="p-8 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-xl text-center text-xs space-y-2 shadow-inner">
                   <CheckCircle2 className="w-8 h-8 mx-auto animate-bounce text-emerald-500" />
-                  <h4 className="font-bold text-sm">Resume Registered in Priority Pool!</h4>
-                  <p className="font-medium text-emerald-600/90">Your profile has been cached. Once new slots open, our team will signal you. Successful completion will award you an MSME-recognized internship certificate!</p>
+                  <h4 className="font-bold text-sm">Application Registered Successfully!</h4>
+                  <p className="font-medium text-emerald-600/90">Your profile has been saved in our talent pool. Once new positions open, our team will reach out to you.</p>
                 </div>
               ) : (
                 <form onSubmit={handleInternSubmit} className="space-y-4">
@@ -102,9 +102,9 @@ export const InternshipView: React.FC = () => {
                       required
                     />
                     <Input 
-                      label="Email ID" 
+                      label="Email Address" 
                       type="email"
-                      placeholder="e.g. saiteja.v@jntu.edu" 
+                      placeholder="e.g. saiteja.v@college.edu" 
                       value={internEmail}
                       onChange={(e) => setInternEmail(e.target.value)}
                       className="bg-[#F8FAFC] border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white focus:border-electric-blue/40"
@@ -129,7 +129,7 @@ export const InternshipView: React.FC = () => {
                         { value: 'Frontend Developer (Next.js / Tailwind CSS)', label: 'Frontend Developer (Next.js / Tailwind CSS)' },
                         { value: 'Backend Developer (Python / FastAPI / Node.js)', label: 'Backend Developer (Python / FastAPI / Node.js)' },
                         { value: 'Full-Stack Developer (MERN / Next.js / Supabase)', label: 'Full-Stack Developer (MERN / Next.js / Supabase)' },
-                        { value: 'AI Agents & Automation Engineering Track', label: 'AI Agents & Automation Engineering Track' },
+                        { value: 'AI & Automation Engineering Track', label: 'AI & Automation Engineering Track' },
                         { value: 'UI/UX & Web Designer Track', label: 'UI/UX & Web Designer Track' },
                         { value: 'SEO & Growth Strategy Track', label: 'SEO & Growth Strategy Track' }
                       ]}
@@ -150,7 +150,7 @@ export const InternshipView: React.FC = () => {
                     />
                   </div>
                   <Button type="submit" variant="neon" size="sm" fullWidth className="font-sora text-xs py-3.5 mt-2 bg-gradient-to-r from-[#2563EB] to-[#2563EB] hover:brightness-105 border-transparent cursor-pointer">
-                    Deploy Internship Candidate CV
+                    Submit Application
                   </Button>
                 </form>
               )}
@@ -170,9 +170,9 @@ export const InternshipView: React.FC = () => {
                 <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold block border-b border-slate-100 pb-3">
                   CAREERS DESK
                 </span>
-                <h3 className="font-sora font-extrabold text-lg text-[#0F172A]">Immediate Human Signals</h3>
+                <h3 className="font-sora font-extrabold text-lg text-[#0F172A]">Get in Touch</h3>
                 <p className="text-xs text-[#64748B] leading-relaxed font-medium">
-                  For urgent applications, partnership proposals, or student engineering coordinators, connect directly with our leadership team:
+                  For inquiries about future internship batches or academic collaborations, contact our team:
                 </p>
 
                 <div className="space-y-3.5 pt-1">
@@ -185,7 +185,7 @@ export const InternshipView: React.FC = () => {
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-[#0F172A] font-sora">Gmail Node</h4>
+                      <h4 className="text-xs font-bold text-[#0F172A] font-sora">Corporate Email</h4>
                       <span className="text-[10px] text-[#64748B] font-mono">csvertex2026@gmail.com</span>
                     </div>
                   </a>
@@ -200,8 +200,8 @@ export const InternshipView: React.FC = () => {
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-[#0F172A] font-sora">WhatsApp Career Node</h4>
-                      <span className="text-[10px] text-[#64748B] font-mono">Direct Ping (+91 72889 77131)</span>
+                      <h4 className="text-xs font-bold text-[#0F172A] font-sora">WhatsApp Channel</h4>
+                      <span className="text-[10px] text-[#64748B] font-mono">+91 72889 77131</span>
                     </div>
                   </a>
 

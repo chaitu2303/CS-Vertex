@@ -38,7 +38,7 @@ export const FoundersSection: React.FC = () => {
       role: 'Head of Operations & Business Development',
       focus: 'Business Development, Startup Partnerships, Growth Strategy, Client Relations, Operations Scaling',
       bio: 'Focused on business expansion strategies, startup partnerships, operational scaling, and building sustainable client acquisition ecosystems for the growth of CS Vertex.',
-      image: '/founder_sateesh.png',
+      image: '/founder_sateesh.jpg',
       linkedin: 'https://www.linkedin.com/in/sateesh-gunna-33948534a/',
       highlight: false
     }
@@ -63,11 +63,11 @@ export const FoundersSection: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl font-black font-sora tracking-tight text-[#0F172A] leading-tight">
-            The Minds Behind <span className="text-shine-gradient-light font-black">CS Vertex</span>
+            The Team Behind <span className="text-shine-gradient-light font-black">CS Vertex</span>
           </h2>
           
           <p className="text-xs sm:text-sm text-[#64748B] max-w-xl mx-auto leading-relaxed font-medium">
-            A focused engineering team building scalable digital ecosystems, automation platforms, and intelligent business software.
+            A passionate team focused on building modern software systems, automation platforms, and scalable digital experiences.
           </p>
         </div>
 

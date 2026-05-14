@@ -17,7 +17,7 @@ export const ContactView: React.FC = () => {
           Connect With CS Vertex
         </h2>
         <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-xl mx-auto font-medium leading-relaxed font-inter">
-          Reach our operations and strategy team directly through our secure corporate channels.
+          We&apos;re here to help businesses build modern digital systems and scalable online solutions.
         </p>
       </div>
 
