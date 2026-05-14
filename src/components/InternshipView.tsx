@@ -14,6 +14,7 @@ export const InternshipView: React.FC = () => {
   const [internEmail, setInternEmail] = useState('');
   const [internCollege, setInternCollege] = useState('');
   const [internTrack, setInternTrack] = useState('Frontend Developer (Next.js / Tailwind CSS)');
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [internSuccess, setInternSuccess] = useState(false);
 
   const handleInternSubmit = (e: React.FormEvent) => {
@@ -25,7 +26,7 @@ export const InternshipView: React.FC = () => {
       email: internEmail,
       college: internCollege,
       domain: internTrack.toLowerCase().includes('backend') ? 'Backend' : internTrack.toLowerCase().includes('ai') ? 'AI & Automation' : 'Frontend',
-      resumeName: 'uploaded_cv_candidate.pdf'
+      resumeName: resumeFile ? resumeFile.name : 'uploaded_cv_candidate.pdf'
     });
     
     setInternSuccess(true);
@@ -33,6 +34,7 @@ export const InternshipView: React.FC = () => {
       setInternName('');
       setInternEmail('');
       setInternCollege('');
+      setResumeFile(null);
       setInternSuccess(false);
     }, 4000);
   };
@@ -131,6 +133,20 @@ export const InternshipView: React.FC = () => {
                       { value: 'UI/UX & Web Designer Track', label: 'UI/UX & Web Designer Track' },
                       { value: 'SEO & Growth Strategy Track', label: 'SEO & Growth Strategy Track' }
                     ]}
+                  />
+                </div>
+                <div className="space-y-1.5 text-left pt-1">
+                  <label className="block text-xs font-bold text-slate-700 font-sora">Upload Resume / CV (PDF/DOCX)</label>
+                  <input 
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        setResumeFile(e.target.files[0]);
+                      }
+                    }}
+                    className="w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-[#2563EB] hover:file:bg-blue-100 cursor-pointer border border-slate-200/80 rounded-xl bg-[#F8FAFC] p-1.5 focus:outline-none"
+                    required
                   />
                 </div>
                 <Button type="submit" variant="neon" size="sm" fullWidth className="font-sora text-xs py-3.5 mt-2 bg-gradient-to-r from-[#2563EB] to-[#2563EB] hover:brightness-105 border-transparent cursor-pointer">
