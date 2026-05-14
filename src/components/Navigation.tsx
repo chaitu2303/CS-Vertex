@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable react-hooks/set-state-in-effect */
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useGlobalStore } from '@/store/globalStore';
@@ -27,7 +28,7 @@ export const Navigation: React.FC = () => {
       isAutoScrollingRef.current = true;
       setTimeout(() => {
         isAutoScrollingRef.current = false;
-      }, 1200);
+      }, 1500);
     }
 
     if (elementId === 'home') {
@@ -42,36 +43,37 @@ export const Navigation: React.FC = () => {
     }
   };
 
-  // Intelligent Scroll Synchronization with click-lock debounce
+  // Intelligent IntersectionObserver Synchronization with click-lock debounce
   useEffect(() => {
-    const handleScroll = () => {
-      if (role === 'admin') {
-        setActiveSection('admin');
-        return;
-      }
+    if (role === 'admin') {
+      setActiveSection('admin');
+      return;
+    }
+
+    const sectionIds = ['home', 'services', 'projects', 'quote', 'contact', 'feedback', 'about', 'internship'];
+    
+    const observerCallback: IntersectionObserverCallback = (entries) => {
       if (isAutoScrollingRef.current) return;
-
-      const scrollY = window.scrollY;
-      if (scrollY < 120) {
-        setActiveSection('home');
-        return;
-      }
-
-      const sections = ['internship', 'about', 'feedback', 'contact', 'quote', 'projects', 'services', 'home'];
-      const scrollPos = scrollY + window.innerHeight * 0.45;
-
-      for (const sec of sections) {
-        const el = document.getElementById(sec);
-        if (el && scrollPos >= el.offsetTop) {
-          setActiveSection(sec);
-          break;
+      
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
         }
-      }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: [0, 0.2, 0.5]
+    });
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, [role]);
 
   return (
@@ -79,11 +81,11 @@ export const Navigation: React.FC = () => {
       <div 
         className="min-h-[4rem] rounded-full px-4 md:px-6 py-2 flex items-center justify-between pointer-events-auto transition-all duration-500"
         style={{
-          background: 'rgba(255, 255, 255, 0.65)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.35)',
-          boxShadow: '0 10px 40px -10px rgba(37, 99, 235, 0.2)',
+          background: 'rgba(255, 255, 255, 0.55)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+          border: '1px solid rgba(255, 255, 255, 0.25)',
+          boxShadow: '0 10px 40px -10px rgba(37, 99, 235, 0.15)',
         }}
       >
         

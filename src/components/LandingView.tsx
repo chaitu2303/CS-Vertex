@@ -61,7 +61,7 @@ export const LandingView: React.FC = () => {
       />
 
       {/* --- HERO SECTION (CENTERED MINIMALIST MODERN) --- */}
-      <section id="home" className="relative z-10 pt-20 pb-28 md:pt-32 md:pb-36 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto flex items-center justify-center min-h-[75vh]">
+      <section id="home" className="scroll-mt-28 relative z-10 pt-20 pb-28 md:pt-32 md:pb-36 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto flex items-center justify-center min-h-[75vh]">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto space-y-6">
           
           {/* Clean Editorial Sora Header Title */}
@@ -119,7 +119,7 @@ export const LandingView: React.FC = () => {
 
 
       {/* --- SERVICES SECTION (BENTO GRID WITH MIXED CARDS) --- */}
-      <section id="services" className="relative z-10 py-24 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto border-t border-slate-200/50">
+      <section id="services" className="scroll-mt-28 relative z-10 py-24 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto border-t border-slate-200/50">
         <div className="text-center mb-16 space-y-3">
           <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold">INTEGRATED SOLUTION CORE</span>
           <h2 className="text-3xl sm:text-4xl font-black font-sora text-[#0F172A]">Solutions Designed for Modern Businesses</h2>
@@ -191,7 +191,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="border-t border-slate-200/60 bg-transparent relative z-10"
+        className="scroll-mt-28 border-t border-slate-200/60 bg-transparent relative z-10"
       >
         <ClientView />
       </motion.section>
@@ -202,7 +202,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="border-t border-slate-200/60 bg-transparent relative z-10"
+        className="scroll-mt-28 border-t border-slate-200/60 bg-transparent relative z-10"
       >
         <QuoteView />
       </motion.section>
@@ -213,7 +213,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="border-t border-slate-200/60 bg-transparent relative z-10"
+        className="scroll-mt-28 border-t border-slate-200/60 bg-transparent relative z-10"
       >
         <ContactView />
       </motion.section>
@@ -224,7 +224,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="border-t border-slate-200/60 bg-transparent relative z-10"
+        className="scroll-mt-28 border-t border-slate-200/60 bg-transparent relative z-10"
       >
         <FeedbackView />
       </motion.section>
@@ -235,7 +235,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 bg-transparent"
+        className="scroll-mt-28 relative z-10 bg-transparent"
       >
         <FoundersSection />
       </motion.div>
@@ -246,7 +246,7 @@ export const LandingView: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="border-t border-slate-200/60 bg-transparent relative z-10"
+        className="scroll-mt-28 border-t border-slate-200/60 bg-transparent relative z-10"
       >
         <InternshipView />
       </motion.section>

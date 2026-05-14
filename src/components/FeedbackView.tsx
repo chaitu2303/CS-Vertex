@@ -42,14 +42,14 @@ export const FeedbackView: React.FC = () => {
       <div className="ambient-glow-blue top-[10%] left-[10%] w-[500px] h-[500px] opacity-30" />
 
       {/* Editorial Header */}
-      <div className="pb-8 mb-12 border-b border-slate-200/60 relative z-10">
-        <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full inline-block mb-3 shadow-sm">
+      <div className="text-center pb-8 mb-12 border-b border-slate-200/60 relative z-10 flex flex-col items-center justify-center">
+        <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full inline-block mb-3 shadow-sm mx-auto">
           CUSTOMER TESTIMONIALS & REVIEWS
         </span>
         <h1 className="text-3xl sm:text-5xl font-black font-sora mt-1 tracking-tight text-[#0F172A]">
           What Clients Say About Working With Us
         </h1>
-        <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-2xl font-medium leading-relaxed font-inter">
+        <p className="text-xs sm:text-sm text-[#64748B] mt-3 max-w-2xl mx-auto font-medium leading-relaxed font-inter">
           Trusted by startups, businesses, and emerging founders building modern digital operations.
         </p>
       </div>
@@ -59,39 +59,63 @@ export const FeedbackView: React.FC = () => {
         {/* LEFT COLUMN: Testimonials Review Grid (7 columns) */}
         <div className="lg:col-span-7 space-y-6 text-left">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {feedbacks.map((fb) => (
-              <div 
-                key={fb.id} 
-                className="w-full h-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]"
-              >
-                <div className="p-6 bg-white/95 text-slate-800 rounded-[22px] flex flex-col justify-between backdrop-blur-xl h-full group hover:-translate-y-1 transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="flex gap-1 text-amber-400">
-                      {Array.from({ length: fb.rating }).map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                      {Array.from({ length: 5 - fb.rating }).map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-slate-200" />
-                      ))}
+            {feedbacks.map((fb) => {
+              const initials = fb.customerName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+              return (
+                <div 
+                  key={fb.id} 
+                  className="w-full h-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]"
+                >
+                  <div 
+                    className="p-6 text-slate-800 rounded-[22px] flex flex-col justify-between h-full group hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.55)',
+                      backdropFilter: 'blur(18px)',
+                      WebkitBackdropFilter: 'blur(18px)',
+                    }}
+                  >
+                    <div className="space-y-4 relative z-10">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 text-white font-black font-sora text-xs flex items-center justify-center shadow-md shadow-blue-500/20">
+                            {initials}
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-bold text-[#0F172A] font-sora leading-none">{fb.customerName}</h4>
+                            <span className="text-[9px] text-[#64748B] font-mono mt-1 block">{fb.date}</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-0.5 text-amber-400">
+                          {Array.from({ length: fb.rating }).map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                          ))}
+                          {Array.from({ length: 5 - fb.rating }).map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 text-slate-200" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-slate-700 leading-relaxed font-sans font-medium italic pt-2">
+                        &quot;{fb.feedbackText}&quot;
+                      </p>
                     </div>
-                    <p className="text-xs text-slate-600 leading-relaxed font-sans font-medium italic">
-                      &quot;{fb.feedbackText}&quot;
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-slate-100 mt-6 flex justify-between items-center">
-                    <h4 className="text-xs font-bold text-[#0F172A] font-sora">{fb.customerName}</h4>
-                    <span className="text-[10px] text-slate-400 font-mono font-bold">{fb.date}</span>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* RIGHT COLUMN: Submit Feedback Card (5 columns) */}
         <div className="lg:col-span-5 space-y-6">
           <div className="w-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]">
-            <div className="p-6 md:p-8 bg-white/95 text-slate-800 rounded-[22px] relative overflow-hidden backdrop-blur-xl">
+            <div 
+              className="p-6 md:p-8 text-slate-800 rounded-[22px] relative overflow-hidden"
+              style={{
+                background: 'rgba(255, 255, 255, 0.55)',
+                backdropFilter: 'blur(18px)',
+                WebkitBackdropFilter: 'blur(18px)',
+              }}
+            >
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" />
             <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
               <div className="p-2.5 bg-blue-50 border border-blue-100 text-[#2563EB] rounded-xl">
@@ -116,7 +140,7 @@ export const FeedbackView: React.FC = () => {
                   placeholder="e.g. Sai Kumar" 
                   value={custName}
                   onChange={(e) => setCustName(e.target.value)}
-                  className="bg-[#F8FAFC] border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white focus:border-electric-blue/40"
+                  className="bg-white/80 border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white focus:border-electric-blue/40"
                   required
                 />
                 
@@ -148,7 +172,7 @@ export const FeedbackView: React.FC = () => {
                   rows={4}
                   value={custText}
                   onChange={(e) => setCustText(e.target.value)}
-                  className="bg-[#F8FAFC] border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white focus:border-electric-blue/40"
+                  className="bg-white/80 border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white focus:border-electric-blue/40"
                   required
                 />
 
