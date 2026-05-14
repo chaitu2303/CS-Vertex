@@ -12,6 +12,7 @@ import { ContactView } from './ContactView';
 import { QuoteView } from './QuoteView';
 import { InternshipView } from './InternshipView';
 import { FoundersSection } from './FoundersSection';
+import { GlowCard } from '@/components/ui/spotlight-card';
 
 
 export const LandingView: React.FC = () => {
@@ -141,41 +142,44 @@ export const LandingView: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="h-full"
               >
-                <div className={`p-7 md:p-8 rounded-2xl h-full flex flex-col justify-between border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 group ${
-                  isDark 
-                    ? 'bg-gradient-to-br from-slate-900/90 to-[#0F172A]/90 border-slate-700 text-white shadow-2xl shadow-blue-900/20' 
-                    : 'bg-white/60 border-white/80 text-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)]'
-                }`}>
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className={`p-3 rounded-xl border transition-colors duration-300 ${isDark ? 'bg-slate-800/50 border-slate-600 text-blue-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 group-hover:border-blue-500/40' : 'bg-white border-slate-200 text-[#2563EB] group-hover:bg-blue-50 group-hover:border-blue-200'}`}>
-                        <IconComponent className="w-5 h-5" />
+                <GlowCard customSize glowColor={isDark ? 'blue' : 'purple'} className="w-full h-full p-0 border-none shadow-none bg-transparent backdrop-blur-none">
+                  <div className={`p-7 md:p-8 rounded-2xl h-full flex flex-col justify-between border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 group ${
+                    isDark 
+                      ? 'bg-gradient-to-br from-slate-900/90 to-[#0F172A]/90 border-slate-700 text-white shadow-2xl shadow-blue-900/20' 
+                      : 'bg-white/60 border-white/80 text-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)]'
+                  }`}>
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className={`p-3 rounded-xl border transition-colors duration-300 ${isDark ? 'bg-slate-800/50 border-slate-600 text-blue-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 group-hover:border-blue-500/40' : 'bg-white border-slate-200 text-[#2563EB] group-hover:bg-blue-50 group-hover:border-blue-200'}`}>
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                        <span className={`text-[9px] font-mono font-bold tracking-wider uppercase border px-2.5 py-1 rounded-full ${isDark ? 'text-slate-300 border-slate-600 bg-slate-800/50' : 'text-[#64748B] border-slate-200 bg-white/50'}`}>
+                          {svc.tag}
+                        </span>
                       </div>
-                      <span className={`text-[9px] font-mono font-bold tracking-wider uppercase border px-2.5 py-1 rounded-full ${isDark ? 'text-slate-300 border-slate-600 bg-slate-800/50' : 'text-[#64748B] border-slate-200 bg-white/50'}`}>
-                        {svc.tag}
-                      </span>
+
+                      <h3 className={`font-sora font-extrabold text-lg mb-2 leading-tight ${isDark ? 'text-white' : 'text-[#0F172A]'}`}>{svc.title}</h3>
+                      <p className={`text-xs leading-relaxed mb-6 font-sans font-medium ${isDark ? 'text-slate-400' : 'text-[#64748B]'}`}>{svc.desc}</p>
                     </div>
 
-                    <h3 className={`font-sora font-extrabold text-lg mb-2 leading-tight ${isDark ? 'text-white' : 'text-[#0F172A]'}`}>{svc.title}</h3>
-                    <p className={`text-xs leading-relaxed mb-6 font-sans font-medium ${isDark ? 'text-slate-400' : 'text-[#64748B]'}`}>{svc.desc}</p>
+                    <div>
+                      <Button 
+                        variant="solid" 
+                        size="sm" 
+                        fullWidth 
+                        onClick={() => {
+                          const el = document.getElementById('contact');
+                          el?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="text-[10px] font-semibold tracking-wider uppercase font-sora py-3 rounded-xl mt-4 cursor-pointer"
+                      >
+                        Request Consultation 
+                      </Button>
+                    </div>
                   </div>
-
-                  <div>
-                    <Button 
-                      variant="solid" 
-                      size="sm" 
-                      fullWidth 
-                      onClick={() => {
-                        const el = document.getElementById('contact');
-                        el?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="text-[10px] font-semibold tracking-wider uppercase font-sora py-3 rounded-xl mt-4 cursor-pointer"
-                    >
-                      Request Consultation 
-                    </Button>
-                  </div>
-                </div>
+                </GlowCard>
               </motion.div>
             );
           })}
