@@ -45,7 +45,7 @@ export default function ShaderShowcase() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black relative overflow-hidden">
+    <div id="home" ref={containerRef} className="min-h-screen bg-black relative overflow-hidden">
       <svg className="absolute inset-0 w-0 h-0">
         <defs>
           <filter id="glass-effect" x="-50%" y="-50%" width="200%" height="200%">
@@ -273,13 +273,21 @@ export default function ShaderShowcase() {
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <motion.button
+              onClick={() => {
+                const el = document.getElementById('services');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="px-10 py-4 rounded-full bg-transparent border-2 border-white/30 text-white font-medium text-sm transition-all duration-300 hover:bg-white/10 hover:border-cyan-400/50 hover:text-cyan-100 cursor-pointer backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Pricing
+              Explore Solutions 
             </motion.button>
             <motion.button
+              onClick={() => {
+                const el = document.getElementById('contact');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="px-10 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-orange-500 text-white font-semibold text-sm transition-all duration-300 hover:from-cyan-400 hover:to-orange-400 cursor-pointer shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
