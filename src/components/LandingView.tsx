@@ -40,8 +40,7 @@ export const LandingView: React.FC = () => {
         }} 
       />
       
-      {/* Immersive Animated Light Backlight Spotlights and Fine Grids */}
-      <div className="fine-grid-texture-light animate-pulse" style={{ animationDuration: '10s' }} />
+      {/* Immersive Animated Light Backlight Spotlights */}
       <div className="ambient-glow-blue top-[10%] left-[10%] w-[500px] h-[500px]" />
       <div className="ambient-glow-cyan bottom-[20%] right-[10%] w-[600px] h-[600px]" />
       

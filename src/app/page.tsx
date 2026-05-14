@@ -35,8 +35,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-slate-800 flex flex-col selection:bg-teal-500 selection:text-white relative overflow-x-hidden">
-      {/* --- UNIVERSAL GRID & RADIAL GRADIENT BACKGROUND --- */}
-      <div className="fixed inset-0 -z-10 pointer-events-none h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+      {/* --- RADIAL GRADIENT BACKGROUND (NO GRID LINES) --- */}
+      <div className="fixed inset-0 -z-10 pointer-events-none h-full w-full bg-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_1000px_at_50%_300px,#93c5fd,transparent)] opacity-40"></div>
       </div>
 
