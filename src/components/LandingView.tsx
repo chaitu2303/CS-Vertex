@@ -142,11 +142,11 @@ export const LandingView: React.FC = () => {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="h-full"
               >
-                <GlowCard customSize glowColor={isDark ? 'blue' : 'purple'} className="w-full h-full p-0 border-none shadow-none bg-transparent backdrop-blur-none">
-                  <div className={`p-7 md:p-8 rounded-2xl h-full flex flex-col justify-between border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 group ${
+                <GlowCard customSize glowColor={isDark ? 'blue' : 'purple'} className="w-full h-full p-[2px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]">
+                  <div className={`p-7 md:p-8 rounded-[14px] h-full flex flex-col justify-between backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 group ${
                     isDark 
-                      ? 'bg-gradient-to-br from-slate-900/90 to-[#0F172A]/90 border-slate-700 text-white shadow-2xl shadow-blue-900/20' 
-                      : 'bg-white/60 border-white/80 text-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)]'
+                      ? 'bg-gradient-to-br from-slate-950 to-[#0F172A] text-white shadow-2xl shadow-blue-900/20' 
+                      : 'bg-white/95 text-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)]'
                   }`}>
                     <div>
                       <div className="flex items-center justify-between mb-5">
