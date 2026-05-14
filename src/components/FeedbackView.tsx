@@ -62,24 +62,26 @@ export const FeedbackView: React.FC = () => {
             {feedbacks.map((fb) => (
               <div 
                 key={fb.id} 
-                className="p-6 bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl flex flex-col justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(37,99,235,0.1)] hover:-translate-y-2 transition-all duration-500"
+                className="w-full h-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]"
               >
-                <div className="space-y-4">
-                  <div className="flex gap-1 text-amber-400">
-                    {Array.from({ length: fb.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                    {Array.from({ length: 5 - fb.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-slate-200" />
-                    ))}
+                <div className="p-6 bg-white/95 text-slate-800 rounded-[22px] flex flex-col justify-between backdrop-blur-xl h-full group hover:-translate-y-1 transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="flex gap-1 text-amber-400">
+                      {Array.from({ length: fb.rating }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                      {Array.from({ length: 5 - fb.rating }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-slate-200" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed font-sans font-medium italic">
+                      &quot;{fb.feedbackText}&quot;
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-sans font-medium italic">
-                    "{fb.feedbackText}"
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-100 mt-6 flex justify-between items-center">
-                  <h4 className="text-xs font-bold text-[#0F172A] font-sora">{fb.customerName}</h4>
-                  <span className="text-[10px] text-slate-400 font-mono font-bold">{fb.date}</span>
+                  <div className="pt-4 border-t border-slate-100 mt-6 flex justify-between items-center">
+                    <h4 className="text-xs font-bold text-[#0F172A] font-sora">{fb.customerName}</h4>
+                    <span className="text-[10px] text-slate-400 font-mono font-bold">{fb.date}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -88,8 +90,9 @@ export const FeedbackView: React.FC = () => {
 
         {/* RIGHT COLUMN: Submit Feedback Card (5 columns) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 md:p-8 bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" />
+          <div className="w-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]">
+            <div className="p-6 md:p-8 bg-white/95 text-slate-800 rounded-[22px] relative overflow-hidden backdrop-blur-xl">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" />
             <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
               <div className="p-2.5 bg-blue-50 border border-blue-100 text-[#2563EB] rounded-xl">
                 <MessageSquare className="w-5 h-5 text-[#2563EB]" />
@@ -161,6 +164,7 @@ export const FeedbackView: React.FC = () => {
               </form>
             )}
           </div>
+        </div>
         </div>
 
       </div>

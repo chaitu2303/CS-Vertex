@@ -80,18 +80,15 @@ export const FoundersSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
-              className={`relative rounded-3xl p-6 transition-all duration-500 bg-white/40 backdrop-blur-xl border border-white/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(37,99,235,0.1)] group ${
-                founder.highlight 
-                  ? 'ring-2 ring-blue-500/30 shadow-[0_15px_30px_rgba(37,99,235,0.05)]' 
-                  : 'shadow-[0_8px_30px_rgb(0,0,0,0.04)]'
-              }`}
+              className="w-full h-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]"
             >
-              {founder.highlight && (
-                <span className="absolute top-4 right-4 bg-blue-50 border border-blue-100 text-[#2563EB] text-[8px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                  <Award className="w-3 h-3 text-[#2563EB]" />
-                  VISIONARY NODE
-                </span>
-              )}
+              <div className="bg-white/95 text-slate-800 rounded-[22px] p-6 h-full relative flex flex-col justify-between overflow-hidden backdrop-blur-xl group hover:-translate-y-1 transition-all duration-300">
+                {founder.highlight && (
+                  <span className="absolute top-4 right-4 bg-blue-50 border border-blue-100 text-[#2563EB] text-[8px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                    <Award className="w-3 h-3 text-[#2563EB]" />
+                    VISIONARY NODE
+                  </span>
+                )}
 
               {/* Founder headshot frame */}
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 shadow-sm group">
@@ -154,6 +151,7 @@ export const FoundersSection: React.FC = () => {
                   </a>
                 </div>
 
+              </div>
               </div>
             </motion.div>
           ))}

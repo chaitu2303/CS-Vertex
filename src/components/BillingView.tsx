@@ -52,7 +52,7 @@ export const BillingView: React.FC = () => {
     setInvoiceItems(invoiceItems.filter((_, i) => i !== idx));
   };
 
-  const handleItemChange = (idx: number, field: keyof InvoiceItem, val: any) => {
+  const handleItemChange = (idx: number, field: keyof InvoiceItem, val: string | number) => {
     setInvoiceItems(
       invoiceItems.map((item, i) => {
         if (i === idx) {
@@ -71,7 +71,7 @@ export const BillingView: React.FC = () => {
     let name = 'Kiran Kumar';
     let service = 'Custom Cloud Server Setup';
     let price = 15000;
-    let qty = 1;
+    const qty = 1;
 
     const nameMatch = query.match(/(?:bill|charge|invoice|for|customer|to)\s+([a-zA-Z\s]{3,15})(?:\s+for|\s+at|\s+₹|\s+rs|\s+\d|\s+and|$)/);
     if (nameMatch && nameMatch[1]) {

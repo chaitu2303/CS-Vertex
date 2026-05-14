@@ -123,95 +123,96 @@ export const ClientView: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               onClick={() => project.url && window.open(project.url, '_blank')}
-              className={`group bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(37,99,235,0.1)] hover:-translate-y-2 transition-all duration-500 relative flex flex-col justify-between overflow-hidden ${project.url ? 'cursor-pointer hover:border-white/80' : ''}`}
+              className={`w-full h-full p-[2px] rounded-3xl bg-gradient-to-r from-blue-500/40 via-indigo-500/40 to-purple-500/40 hover:from-blue-500/80 hover:via-cyan-500/80 hover:to-purple-500/80 transition-all duration-500 shadow-[0_0_25px_rgba(37,99,235,0.15)] hover:shadow-[0_0_35px_rgba(37,99,235,0.35)] ${project.url ? 'cursor-pointer' : ''}`}
             >
-              {/* Left-edge color bar indicator */}
-              <div 
-                className="absolute left-0 top-0 bottom-0 w-[4px] transition-opacity" 
-                style={{ backgroundColor: project.accentColor }}
-              />
-
-              {/* Tagging bar */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-[9px] font-mono font-bold uppercase text-[#2563EB] bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-full">
-                  {project.category}
-                </span>
-                <span className="text-[10px] text-slate-400 font-mono font-bold flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5" />
-                  {project.location}
-                </span>
-              </div>
-
-              {/* Real Project Cover Screenshot Box */}
-              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-100 mb-6 bg-slate-50 group-hover:border-blue-100/60 transition-colors shadow-xs flex items-center justify-center">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-contain p-1 transition-transform duration-500 group-hover:scale-[1.025]"
+              <div className="bg-white/95 text-slate-800 rounded-[22px] p-6 md:p-8 h-full relative flex flex-col justify-between overflow-hidden backdrop-blur-xl group hover:-translate-y-1 transition-all duration-300">
+                {/* Left-edge color bar indicator */}
+                <div 
+                  className="absolute left-0 top-0 bottom-0 w-[4px] transition-opacity" 
+                  style={{ backgroundColor: project.accentColor }}
                 />
-              </div>
 
-              {/* Main Info */}
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div 
-                    className="p-3.5 rounded-2xl border flex items-center justify-center text-white shrink-0 shadow-sm"
-                    style={{ backgroundColor: `${project.accentColor}10`, color: project.accentColor, borderColor: `${project.accentColor}25` }}
-                  >
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-sora font-black text-2xl text-[#0F172A] tracking-tight flex items-center gap-1.5 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                      <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 transition-colors" />
-                    </h3>
-                    <p className="text-xs font-bold text-slate-400 font-mono mt-0.5 tracking-wider uppercase">{project.tagline}</p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-[#64748B] leading-relaxed font-medium pt-2">
-                  {project.desc}
-                </p>
-
-                {/* Core Features bullets */}
-                <div className="pt-2 space-y-2">
-                  <span className="text-[9px] font-mono tracking-wider font-bold text-slate-400 uppercase block">CORE HIGHLIGHTS</span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {project.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex gap-2 items-start text-[11px] text-[#0F172A] font-medium">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Impact Statement metrics */}
-                <div className="pt-2 space-y-2">
-                  <span className="text-[9px] font-mono tracking-wider font-bold text-slate-400 uppercase block">PROVEN METRICS</span>
-                  <div className="space-y-1.5">
-                    {project.metrics.map((metric, mIdx) => (
-                      <div key={mIdx} className="flex gap-2 items-center text-[10px] font-mono font-bold text-emerald-600 bg-emerald-50/40 border border-emerald-100 p-2 rounded-lg">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse shrink-0" />
-                        <span>{metric}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Technologies chip tags */}
-              <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-1.5">
-                {project.tech.map((tItem) => (
-                  <span 
-                    key={tItem}
-                    className="bg-slate-50 border border-slate-200 text-slate-600 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold"
-                  >
-                    {tItem}
+                {/* Tagging bar */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[9px] font-mono font-bold uppercase text-[#2563EB] bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-full">
+                    {project.category}
                   </span>
-                ))}
-              </div>
+                  <span className="text-[10px] text-slate-400 font-mono font-bold flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5" />
+                    {project.location}
+                  </span>
+                </div>
 
+                {/* Real Project Cover Screenshot Box */}
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-100 mb-6 bg-slate-50 group-hover:border-blue-100/60 transition-colors shadow-xs flex items-center justify-center">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-contain p-1 transition-transform duration-500 group-hover:scale-[1.025]"
+                  />
+                </div>
+
+                {/* Main Info */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div 
+                      className="p-3.5 rounded-2xl border flex items-center justify-center text-white shrink-0 shadow-sm"
+                      style={{ backgroundColor: `${project.accentColor}10`, color: project.accentColor, borderColor: `${project.accentColor}25` }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-sora font-black text-2xl text-[#0F172A] tracking-tight flex items-center gap-1.5 group-hover:text-blue-600 transition-colors">
+                        {project.title}
+                        <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 transition-colors" />
+                      </h3>
+                      <p className="text-xs font-bold text-slate-400 font-mono mt-0.5 tracking-wider uppercase">{project.tagline}</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-[#64748B] leading-relaxed font-medium pt-2">
+                    {project.desc}
+                  </p>
+
+                  {/* Core Features bullets */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[9px] font-mono tracking-wider font-bold text-slate-400 uppercase block">CORE HIGHLIGHTS</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {project.features.map((feat, fIdx) => (
+                        <div key={fIdx} className="flex gap-2 items-start text-[11px] text-[#0F172A] font-medium">
+                          <CheckCircle className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Impact Statement metrics */}
+                  <div className="pt-2 space-y-2">
+                    <span className="text-[9px] font-mono tracking-wider font-bold text-slate-400 uppercase block">PROVEN METRICS</span>
+                    <div className="space-y-1.5">
+                      {project.metrics.map((metric, mIdx) => (
+                        <div key={mIdx} className="flex gap-2 items-center text-[10px] font-mono font-bold text-emerald-600 bg-emerald-50/40 border border-emerald-100 p-2 rounded-lg">
+                          <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse shrink-0" />
+                          <span>{metric}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technologies chip tags */}
+                <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-1.5">
+                  {project.tech.map((tItem) => (
+                    <span 
+                      key={tItem}
+                      className="bg-slate-50 border border-slate-200 text-slate-600 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold"
+                    >
+                      {tItem}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           );
         })}
