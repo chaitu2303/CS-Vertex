@@ -79,7 +79,18 @@ export const Navigation: React.FC = () => {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    const handleWindowScroll = () => {
+      if (isAutoScrollingRef.current) return;
+      if (window.scrollY < 200) {
+        setActiveSection('home');
+      }
+    };
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleWindowScroll);
+    };
   }, [role]);
 
   return (
