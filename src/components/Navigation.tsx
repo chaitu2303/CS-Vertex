@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export const Navigation: React.FC = () => {
   const { role, setRole } = useGlobalStore();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('platform');
+  const [activeSection, setActiveSection] = useState<string>('home');
   const isAutoScrollingRef = useRef(false);
 
   const getRoleLabel = () => {
@@ -30,7 +30,7 @@ export const Navigation: React.FC = () => {
       }, 1200);
     }
 
-    if (elementId === 'hero') {
+    if (elementId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (elementId) {
       setTimeout(() => {
@@ -52,37 +52,20 @@ export const Navigation: React.FC = () => {
       if (isAutoScrollingRef.current) return;
 
       const scrollY = window.scrollY;
-      if (scrollY < 150) {
-        setActiveSection('platform');
+      if (scrollY < 120) {
+        setActiveSection('home');
         return;
       }
 
-      const internshipEl = document.getElementById('internship-section');
-      const aboutEl = document.getElementById('about-section');
-      const feedbackEl = document.getElementById('feedback-section');
-      const contactEl = document.getElementById('contact-section');
-      const quoteEl = document.getElementById('quote-section');
-      const projectHubEl = document.getElementById('project-hub-section');
-      const servicesEl = document.getElementById('bento-services');
-
+      const sections = ['internship', 'about', 'feedback', 'contact', 'quote', 'projects', 'services', 'home'];
       const scrollPos = scrollY + window.innerHeight * 0.45;
 
-      if (internshipEl && scrollPos >= internshipEl.offsetTop) {
-        setActiveSection('internship');
-      } else if (aboutEl && scrollPos >= aboutEl.offsetTop) {
-        setActiveSection('about');
-      } else if (feedbackEl && scrollPos >= feedbackEl.offsetTop) {
-        setActiveSection('feedback');
-      } else if (contactEl && scrollPos >= contactEl.offsetTop) {
-        setActiveSection('contact');
-      } else if (quoteEl && scrollPos >= quoteEl.offsetTop) {
-        setActiveSection('quote');
-      } else if (projectHubEl && scrollPos >= projectHubEl.offsetTop) {
-        setActiveSection('project-hub');
-      } else if (servicesEl && scrollPos >= servicesEl.offsetTop) {
-        setActiveSection('services');
-      } else {
-        setActiveSection('platform');
+      for (const sec of sections) {
+        const el = document.getElementById(sec);
+        if (el && scrollPos >= el.offsetTop) {
+          setActiveSection(sec);
+          break;
+        }
       }
     };
 
@@ -109,7 +92,7 @@ export const Navigation: React.FC = () => {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           className="flex items-center gap-3 cursor-pointer select-none group py-1 shrink-0"
-          onClick={() => handleNavClick('guest', 'hero', 'platform')}
+          onClick={() => handleNavClick('guest', 'home', 'home')}
         >
           <div className="p-2 rounded-xl bg-[#050505] border border-slate-200/40 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm flex items-center justify-center">
             <span className="font-black text-white px-1 font-sora text-sm group-hover:text-blue-400 transition-colors leading-none">V</span>
@@ -126,14 +109,14 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'hero', 'platform')}
+            onClick={() => handleNavClick('guest', 'home', 'home')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
-              activeSection === 'platform' 
+              activeSection === 'home' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
                 : 'hover:text-blue-600 hover:bg-white/60 text-slate-600 border border-transparent'
             }`}
           >
-            {activeSection === 'platform' && (
+            {activeSection === 'home' && (
               <>
                 <motion.div 
                   layoutId="activeNavPill" 
@@ -154,7 +137,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'bento-services', 'services')}
+            onClick={() => handleNavClick('guest', 'services', 'services')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'services' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -182,14 +165,14 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'project-hub-section', 'project-hub')}
+            onClick={() => handleNavClick('guest', 'projects', 'projects')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
-              activeSection === 'project-hub' 
+              activeSection === 'projects' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
                 : 'hover:text-blue-600 hover:bg-white/60 text-slate-600 border border-transparent'
             }`}
           >
-            {activeSection === 'project-hub' && (
+            {activeSection === 'projects' && (
               <>
                 <motion.div 
                   layoutId="activeNavPill" 
@@ -210,7 +193,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'quote-section', 'quote')}
+            onClick={() => handleNavClick('guest', 'quote', 'quote')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'quote' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -238,7 +221,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'contact-section', 'contact')}
+            onClick={() => handleNavClick('guest', 'contact', 'contact')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'contact' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -266,7 +249,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'feedback-section', 'feedback')}
+            onClick={() => handleNavClick('guest', 'feedback', 'feedback')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'feedback' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -294,7 +277,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'about-section', 'about')}
+            onClick={() => handleNavClick('guest', 'about', 'about')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'about' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -322,7 +305,7 @@ export const Navigation: React.FC = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('guest', 'internship-section', 'internship')}
+            onClick={() => handleNavClick('guest', 'internship', 'internship')}
             className={`relative px-4 py-2.5 rounded-full transition-all duration-300 cursor-pointer select-none tracking-wide ${
               activeSection === 'internship' 
                 ? 'text-white scale-105 shadow-lg shadow-blue-500/25 border border-cyan-400/30' 
@@ -399,15 +382,15 @@ export const Navigation: React.FC = () => {
             <div className="flex flex-col space-y-2 text-xs font-bold text-slate-700">
               
               <button 
-                onClick={() => handleNavClick('guest', 'hero', 'platform')}
-                className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'platform' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
+                onClick={() => handleNavClick('guest', 'home', 'home')}
+                className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'home' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>1. Home</span>
-                {activeSection === 'platform' && <Sparkles className="w-3.5 h-3.5" />}
+                {activeSection === 'home' && <Sparkles className="w-3.5 h-3.5" />}
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'bento-services', 'services')}
+                onClick={() => handleNavClick('guest', 'services', 'services')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'services' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>2. Services</span>
@@ -415,15 +398,15 @@ export const Navigation: React.FC = () => {
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'project-hub-section', 'project-hub')}
-                className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'project-hub' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
+                onClick={() => handleNavClick('guest', 'projects', 'projects')}
+                className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'projects' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>3. Our Projects</span>
-                {activeSection === 'project-hub' && <Sparkles className="w-3.5 h-3.5" />}
+                {activeSection === 'projects' && <Sparkles className="w-3.5 h-3.5" />}
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'quote-section', 'quote')}
+                onClick={() => handleNavClick('guest', 'quote', 'quote')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'quote' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>4. Get Quote</span>
@@ -431,7 +414,7 @@ export const Navigation: React.FC = () => {
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'contact-section', 'contact')}
+                onClick={() => handleNavClick('guest', 'contact', 'contact')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'contact' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>5. Contact</span>
@@ -439,7 +422,7 @@ export const Navigation: React.FC = () => {
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'feedback-section', 'feedback')}
+                onClick={() => handleNavClick('guest', 'feedback', 'feedback')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'feedback' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>6. Feedback</span>
@@ -447,7 +430,7 @@ export const Navigation: React.FC = () => {
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'about-section', 'about')}
+                onClick={() => handleNavClick('guest', 'about', 'about')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'about' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>7. About Us</span>
@@ -455,7 +438,7 @@ export const Navigation: React.FC = () => {
               </button>
 
               <button 
-                onClick={() => handleNavClick('guest', 'internship-section', 'internship')}
+                onClick={() => handleNavClick('guest', 'internship', 'internship')}
                 className={`w-full text-left px-4 py-3.5 rounded-2xl transition-all flex items-center justify-between ${activeSection === 'internship' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20' : 'hover:bg-white/80'}`}
               >
                 <span>8. Apply Internship</span>

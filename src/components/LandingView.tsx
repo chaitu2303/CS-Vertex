@@ -63,7 +63,7 @@ export const LandingView: React.FC = () => {
       />
 
       {/* --- HERO SECTION (CENTERED MINIMALIST MODERN) --- */}
-      <section id="hero" className="relative z-10 pt-20 pb-28 md:pt-32 md:pb-36 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto flex items-center justify-center min-h-[75vh]">
+      <section id="home" className="relative z-10 pt-20 pb-28 md:pt-32 md:pb-36 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto flex items-center justify-center min-h-[75vh]">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto space-y-6">
           
           {/* Clean Editorial Sora Header Title */}
@@ -97,7 +97,7 @@ export const LandingView: React.FC = () => {
               variant="solid" 
               size="sm" 
               onClick={() => {
-                const el = document.getElementById('contact-section');
+                const el = document.getElementById('contact');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="font-bold font-sora text-xs px-6 py-3.5 bg-[#2563EB] text-white hover:bg-blue-700 shadow-md shadow-blue-500/10 cursor-pointer"
@@ -108,7 +108,7 @@ export const LandingView: React.FC = () => {
               variant="solid" 
               size="sm" 
               onClick={() => {
-                const el = document.getElementById('bento-services');
+                const el = document.getElementById('services');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="font-bold font-sora text-xs px-6 py-3.5 border border-slate-200 text-slate-800 bg-white hover:bg-slate-50 shadow-sm cursor-pointer"
@@ -121,7 +121,7 @@ export const LandingView: React.FC = () => {
 
 
       {/* --- SERVICES SECTION (BENTO GRID WITH MIXED CARDS) --- */}
-      <section id="bento-services" className="relative z-10 py-24 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto border-t border-slate-200/50">
+      <section id="services" className="relative z-10 py-24 px-6 lg:px-12 xl:px-16 max-w-[1440px] mx-auto border-t border-slate-200/50">
         <div className="text-center mb-16 space-y-3">
           <span className="text-[10px] font-mono tracking-widest text-[#2563EB] uppercase font-bold">INTEGRATED SOLUTION CORE</span>
           <h2 className="text-3xl sm:text-4xl font-black font-sora text-[#0F172A]">Solutions Designed for Modern Businesses</h2>
@@ -168,7 +168,7 @@ export const LandingView: React.FC = () => {
                       size="sm" 
                       fullWidth 
                       onClick={() => {
-                        const el = document.getElementById('contact-section');
+                        const el = document.getElementById('contact');
                         el?.scrollIntoView({ behavior: 'smooth' });
                       }}
                       className="text-[10px] font-semibold tracking-wider uppercase font-sora py-3 rounded-xl mt-4 cursor-pointer"
@@ -185,7 +185,7 @@ export const LandingView: React.FC = () => {
 
       {/* Dynamic continuous scroll sections with smooth scroll-triggered transitions */}
       <motion.section 
-        id="project-hub-section" 
+        id="projects" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -196,7 +196,7 @@ export const LandingView: React.FC = () => {
       </motion.section>
 
       <motion.section 
-        id="quote-section" 
+        id="quote" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -207,7 +207,7 @@ export const LandingView: React.FC = () => {
       </motion.section>
 
       <motion.section 
-        id="contact-section" 
+        id="contact" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -218,7 +218,7 @@ export const LandingView: React.FC = () => {
       </motion.section>
 
       <motion.section 
-        id="feedback-section" 
+        id="feedback" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -229,7 +229,7 @@ export const LandingView: React.FC = () => {
       </motion.section>
 
       <motion.div 
-        id="about-section" 
+        id="about" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -240,7 +240,7 @@ export const LandingView: React.FC = () => {
       </motion.div>
 
       <motion.section 
-        id="internship-section" 
+        id="internship" 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
